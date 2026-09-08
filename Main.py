@@ -27,6 +27,13 @@ import traceback
 
 app = FastAPI(title="Face Recognition API")
 
+@app.get("/")
+async def root():
+    return {
+        "success": True,
+        "message": "Face Intelligence API is running"
+    }
+
 # Browser preflight (OPTIONS) requests get blocked without this -- the
 # Angular dev server (localhost:4200) and anything hitting this through
 # the ngrok tunnel both need CORS headers to actually reach /recognize.
